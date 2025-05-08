@@ -405,14 +405,14 @@
       'ham_ham_hyper.gif',
       'Hamtaro.gif',
       'HamDanceTransparent.gif',
-      'boinboin.gif' // 1% 機率的圖片
+      'boinboin.png' // 1% 機率的圖片
     ];
     const rightToLeftImages = [
       'reikar1.png',
       'ham_ham_hyper.gif',
       'Hamtaro.gif',
       'HamDanceTransparent.gif',
-      'boinboin.gif' // 1% 機率的圖片
+      'boinboin.png' // 1% 機率的圖片
     ];
 
     // 定義機率陣列（總和為 100）
@@ -441,8 +441,8 @@
       let selectedImage;
       let isGuaranteed = false; // 是否由保底觸發
       if (clickCount >= 50) {
-        // 強制選擇 1% 機率的圖片 boinboin.gif
-        selectedImage = direction === 'left-to-right' ? leftToRightImages[4] : rightToLeftImages[4]; // boinboin.gif
+        // 強制選擇 1% 機率的圖片 boinboin.png
+        selectedImage = direction === 'left-to-right' ? leftToRightImages[4] : rightToLeftImages[4]; // boinboin.png
         isGuaranteed = true;
       } else {
         // 正常機率選擇
@@ -455,12 +455,12 @@
       animationElement.style.backgroundImage = `url('${selectedImage}')`;
       animationElement.classList.add(direction === 'left-to-right' ? 'move-left-to-right' : 'move-right-to-left');
 
-      // 如果選擇的圖片是 boinboin.gif，顯示對應文字並重置計數器
-      if (selectedImage === 'boinboin.gif') {
+      // 如果選擇的圖片是 boinboin.png，顯示對應文字並重置計數器
+      if (selectedImage === 'boinboin.png') {
         const winMessage = document.createElement('div');
         winMessage.className = 'win-message';
         // 根據是否為保底選擇顯示的文字
-        winMessage.textContent = isGuaranteed ? '予定通り、天井でした！ (꒪꒫꒪")' : '✨大当たり！！✨';
+        winMessage.textContent = isGuaranteed ? '天井でした！ (꒪꒫꒪")' : '✨大当たり！！✨';
         container.insertBefore(winMessage, container.children[1]); // 在按鈕之間插入文字
 
         // 動畫結束後移除文字
@@ -468,7 +468,7 @@
           winMessage.remove();
         });
 
-        // 無論是隨機抽中還是保底觸發，只要出現 boinboin.gif 就重置計數器
+        // 無論是隨機抽中還是保底觸發，只要出現 boinboin.png 就重置計數器
         clickCount = 0;
       }
 
